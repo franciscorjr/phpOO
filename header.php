@@ -1,5 +1,8 @@
 <?php
-require_once ('Clientes.php');
+require_once('Cliente.php');
+require_once ('InterfaceCliente.php');
+require_once('ClienteFisicaType.php');
+require_once('ClienteJuridicaType.php');
 require_once ('dados.php');
 ?>
 <!DOCTYPE html>

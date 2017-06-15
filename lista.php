@@ -5,33 +5,70 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>Nome</th>
-                <th>Idade</th>
-                <th>Sexo</th>
+                <th>Nome/Razão Social</th>
+                <th>CPF/CNPJ</th>
+                <th>Endereço</th>
+                <th>Tipo</th>
+                <th>Estrelas</th>
                 <th>Ações</th>
             </tr>
             </thead>
             <tfoot>
             <tr>
                 <th>#</th>
-                <th>Nome</th>
-                <th>Idade</th>
-                <th>Sexo</th>
+                <th>Nome/Razão Social</th>
+                <th>CPF/CNPJ</th>
+                <th>Endereço</th>
+                <th>Tipo</th>
+                <th>Estrelas</th>
                 <th>Ações</th>
             </tr>
             </tfoot>
             <tbody>
             <?php
+
             for ($i=0; $i<=count($dados)-1; $i++){
-                $cliente = new Clientes($dados[$i][nome],$dados[$i][cpf],$dados[$i][idade],$dados[$i][endereco],$dados[$i][sexo]);
-                echo
-                "<tr>
+
+                if($dados[$i][tipo_cliente] == 'Fisica'){
+                    $cliente = new ClienteFisicaType();
+                    $cliente
+                        ->setNome($dados[$i][nome])
+                        ->setCpf($dados[$i][cpf])
+                        ->setEndereco($dados[$i][endereco])
+                        ->setTipo($dados[$i][tipo_cliente])
+                        ->classificaImportancia();
+                    echo
+                        "<tr>
                     <th>".$i."</th>
-                    <td>".$cliente->nome."</td>
-                    <td>".$cliente->idade."</td>
-                    <td>".$cliente->sexo."</td>
+                    <td>".$cliente->getNome()."</td>
+                    <td>".$cliente->getCpf()."</td>
+                    <td>".$cliente->getEndereco()."</td>
+                    <td>".$cliente->getTipo()."</td>
+                    <td>".$cliente->getEstrelas()."</td>
                     <td><a class=\"btn btn-default\" href=\"ver_cliente.php?id=".$i."\" role=\"button\">Ver Detalhes</a></td>
                 </tr>";
+                }
+                if($dados[$i][tipo_cliente] == 'Juridica'){
+                    $cliente = new ClienteJuridicaType();
+
+                    $cliente
+                        ->setRazaoSocial($dados[$i][razao_social])
+                        ->setCnpj($dados[$i][cnpj])
+                        ->setEndereco($dados[$i][endereco])
+                        ->setTipo($dados[$i][tipo_cliente])
+                        ->classificaImportancia();
+                    echo
+                        "<tr>
+                    <th>".$i."</th>
+                    <td>".$cliente->getRazaoSocial()."</td>
+                     
+                    <td>".$cliente->getCnpj()."</td>
+                    <td>".$cliente->getEndereco()."</td>
+                    <td>".$cliente->getTipo()."</td>
+                    <td>".$cliente->getEstrelas()."</td>
+                    <td><a class=\"btn btn-default\" href=\"ver_cliente.php?id=".$i."\" role=\"button\">Ver Detalhes</a></td>
+                    </tr>";
+                }
             }
             ?>
             </tbody>
