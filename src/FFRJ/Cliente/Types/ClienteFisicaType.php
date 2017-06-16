@@ -1,7 +1,10 @@
 <?php
 
+namespace FFRJ\Cliente\Types;
+use FFRJ\Cliente\ClienteAbstract;
+use FFRJ\Cliente\Interfaces\InterfaceCliente;
 
-class ClienteFisicaType extends Cliente implements InterfaceCliente
+class ClienteFisicaType extends ClienteAbstract implements InterfaceCliente
 {
     protected $nome;
     protected $cpf;

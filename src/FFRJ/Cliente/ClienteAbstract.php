@@ -1,7 +1,8 @@
 <?php
 
+namespace FFRJ\Cliente;
 
-abstract class Cliente
+abstract class ClienteAbstract
 {
     protected $tipo;
     protected $endereco;

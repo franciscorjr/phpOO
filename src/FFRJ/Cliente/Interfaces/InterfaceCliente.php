@@ -1,5 +1,5 @@
 <?php
-
+namespace FFRJ\Cliente\Interfaces;
 
 interface InterfaceCliente
 {

@@ -1,7 +1,9 @@
 <?php
+namespace FFRJ\Cliente\Types;
+use FFRJ\Cliente\ClienteAbstract;
+use FFRJ\Cliente\Interfaces\InterfaceCliente;
 
-
-class ClienteJuridicaType extends Cliente implements InterfaceCliente
+class ClienteJuridicaType extends ClienteAbstract implements InterfaceCliente
 {
     protected $cnpj;
     protected $razaoSocial;

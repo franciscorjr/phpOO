@@ -2,7 +2,7 @@
 include_once ('header.php');
 $i = $_GET['id'];
 if($dados[$i][tipo_cliente] == 'Fisica'){
-    $cliente = new ClienteFisicaType();
+    $cliente = new FFRJ\Cliente\Types\ClienteFisicaType();
     $cliente
         ->setNome($dados[$i][nome])
         ->setCpf($dados[$i][cpf])
@@ -51,7 +51,7 @@ if($dados[$i][tipo_cliente] == 'Fisica'){
 
 <?php
 }else if($dados[$i][tipo_cliente] == 'Juridica'){
-    $cliente = new ClienteJuridicaType();
+    $cliente = new FFRJ\Cliente\Types\ClienteJuridicaType();
 
     $cliente
         ->setRazaoSocial($dados[$i][razao_social])

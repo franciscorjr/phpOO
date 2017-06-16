@@ -30,7 +30,7 @@
             for ($i=0; $i<=count($dados)-1; $i++){
 
                 if($dados[$i][tipo_cliente] == 'Fisica'){
-                    $cliente = new ClienteFisicaType();
+                    $cliente = new FFRJ\Cliente\Types\ClienteFisicaType();
                     $cliente
                         ->setNome($dados[$i][nome])
                         ->setCpf($dados[$i][cpf])
@@ -49,7 +49,7 @@
                 </tr>";
                 }
                 if($dados[$i][tipo_cliente] == 'Juridica'){
-                    $cliente = new ClienteJuridicaType();
+                    $cliente = new FFRJ\Cliente\Types\ClienteJuridicaType();
 
                     $cliente
                         ->setRazaoSocial($dados[$i][razao_social])

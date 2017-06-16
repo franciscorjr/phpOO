@@ -1,8 +1,9 @@
 <?php
-require_once('Cliente.php');
-require_once ('InterfaceCliente.php');
-require_once('ClienteFisicaType.php');
-require_once('ClienteJuridicaType.php');
+
+define('CLASS_DIR', 'src/');
+set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
+spl_autoload_register();
+
 require_once ('dados.php');
 ?>
 <!DOCTYPE html>
