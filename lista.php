@@ -27,47 +27,41 @@
             <tbody>
             <?php
 
-            for ($i=0; $i<=count($dados)-1; $i++){
+            $cliente = new FFRJ\Cliente\Types\ClienteFisicaType();
 
-                if($dados[$i][tipo_cliente] == 'Fisica'){
-                    $cliente = new FFRJ\Cliente\Types\ClienteFisicaType();
-                    $cliente
-                        ->setNome($dados[$i][nome])
-                        ->setCpf($dados[$i][cpf])
-                        ->setEndereco($dados[$i][endereco])
-                        ->setTipo($dados[$i][tipo_cliente])
-                        ->classificaImportancia();
+            $serviceDb = new FFRJ\DB\ServiceDB($conexao);
+            $serviceDb->persist($cliente);
+
+            foreach ($serviceDb->listar('id desc') as $data) {
+                //echo $data['nome']."</br>";
+
+
+                if ($data['tipo_cliente'] == 'Fisica') {
+
                     echo
                         "<tr>
-                    <th>".$i."</th>
-                    <td>".$cliente->getNome()."</td>
-                    <td>".$cliente->getCpf()."</td>
-                    <td>".$cliente->getEndereco()."</td>
-                    <td>".$cliente->getTipo()."</td>
-                    <td>".$cliente->getEstrelas()."</td>
-                    <td><a class=\"btn btn-default\" href=\"ver_cliente.php?id=".$i."\" role=\"button\">Ver Detalhes</a></td>
+                    <th>" . $data['id'] . "</th>
+                    <td>" . $data['nome'] . "</td>
+                    <td>" . $data['cpf_cnpj'] . "</td>
+                    <td>" . $data['endereco'] . "</td>
+                    <td>" . $data['tipo_cliente'] . "</td>
+                    <td>" . $data['estrela'] . "</td>
+                    <td><a class=\"btn btn-default\" href=\"ver_cliente.php?id=" . $data['id'] . "\" role=\"button\">Ver Detalhes</a></td>
                 </tr>";
                 }
-                if($dados[$i][tipo_cliente] == 'Juridica'){
-                    $cliente = new FFRJ\Cliente\Types\ClienteJuridicaType();
 
-                    $cliente
-                        ->setRazaoSocial($dados[$i][razao_social])
-                        ->setCnpj($dados[$i][cnpj])
-                        ->setEndereco($dados[$i][endereco])
-                        ->setTipo($dados[$i][tipo_cliente])
-                        ->classificaImportancia();
+                if($data['tipo_cliente'] == 'Juridica'){
+
                     echo
                         "<tr>
-                    <th>".$i."</th>
-                    <td>".$cliente->getRazaoSocial()."</td>
-                     
-                    <td>".$cliente->getCnpj()."</td>
-                    <td>".$cliente->getEndereco()."</td>
-                    <td>".$cliente->getTipo()."</td>
-                    <td>".$cliente->getEstrelas()."</td>
-                    <td><a class=\"btn btn-default\" href=\"ver_cliente.php?id=".$i."\" role=\"button\">Ver Detalhes</a></td>
-                    </tr>";
+                        <th>" . $data['id'] . "</th>
+                    <td>" . $data['nome'] . "</td>
+                    <td>" . $data['cpf_cnpj'] . "</td>
+                    <td>" . $data['endereco'] . "</td>
+                    <td>" . $data['tipo_cliente'] . "</td>
+                    <td>" . $data['estrela'] . "</td>
+                        <td><a class=\"btn btn-default\" href=\"ver_cliente.php?id=".$data['id']."\" role=\"button\">Ver Detalhes</a></td>
+                        </tr>";
                 }
             }
             ?>

@@ -2,12 +2,37 @@
 
 namespace FFRJ\Cliente;
 
+
 abstract class ClienteAbstract
 {
+    protected $id;
     protected $tipo;
     protected $endereco;
     protected $enderecoCobranca;
     protected $estrelas;
+    protected $table = "clientes";
+
+    public function getTable()
+    {
+        return $this->table;
+    }
+
+    public function setTable($table)
+    {
+        $this->table = $table;
+        return $this;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     public function getTipo()
     {

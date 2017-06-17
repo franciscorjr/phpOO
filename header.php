@@ -1,10 +1,16 @@
 <?php
+//require_once "conexaoDB.php";
+try{
+    $conexao = new \PDO("mysql:host=localhost;dbname=phpoo", "root","1234");
+}catch (\PDOException $e){
+    die("Não foi possivel estabelecer a conexão com o banco de dados: Erro código: ".$e->getCode().": ".$e->getMessage());
 
+}
 define('CLASS_DIR', 'src/');
 set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
 spl_autoload_register();
 
-require_once ('dados.php');
+//require_once ('dados.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

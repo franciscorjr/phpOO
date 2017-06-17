@@ -4,12 +4,15 @@ namespace FFRJ\Cliente\Types;
 use FFRJ\Cliente\ClienteAbstract;
 use FFRJ\Cliente\Interfaces\InterfaceCliente;
 
+
 class ClienteFisicaType extends ClienteAbstract implements InterfaceCliente
 {
+
     protected $nome;
     protected $cpf;
     protected $idade;
     protected $sexo;
+
 
     public function classificaImportancia()
     {

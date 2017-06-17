@@ -5,6 +5,6 @@ return array(
         'host' => 'localhost',
         'dbname' => 'phpoo',
         'user' => 'root',
-        'password' => '1234',
+        'password' => '12345',
     )
 );
