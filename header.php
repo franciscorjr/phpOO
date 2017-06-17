@@ -1,5 +1,5 @@
 <?php
-//require_once "conexaoDB.php";
+
 try{
     $conexao = new \PDO("mysql:host=localhost;dbname=phpoo", "root","1234");
 }catch (\PDOException $e){
@@ -10,7 +10,7 @@ define('CLASS_DIR', 'src/');
 set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
 spl_autoload_register();
 
-//require_once ('dados.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

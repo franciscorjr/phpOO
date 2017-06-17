@@ -1,5 +1,5 @@
 <?php
-require_once "conexaoDB.php";
+include_once ('header.php');
 define('CLASS_DIR', 'src/');
 set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
 spl_autoload_register();
@@ -8,7 +8,7 @@ require_once ('dados.php');
 
 echo "#### Executando Fixture ####";
 
-$conn = conexaoDB();
+$conn = $conexao;
 
 echo "### Removendo tabela ###";
 $conn->query("DROP TABLE IF EXISTS clientes;");
